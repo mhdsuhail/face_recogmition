@@ -24,7 +24,8 @@ while True:
 
         img_encoding = face_recognition.face_encodings(face_only)[0]
         pred_name = model.predict(np.reshape(img_encoding,(1,-1)))
-        cv2.putText(img,pred_name[0],(x+5,y+h-5),cv2.FONT_HERSHEY_SIMPLEX,1,(255,255,255))
+        for i in pred_name:
+            cv2.putText(img,i,(x+5,y+h-5),cv2.FONT_HERSHEY_SIMPLEX,1,(255,255,255))
 
     cv2.imshow('test_window',img)
 
